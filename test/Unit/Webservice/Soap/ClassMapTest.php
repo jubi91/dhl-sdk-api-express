@@ -5,12 +5,13 @@
 namespace Dhl\Express\Test\Unit\Webservice\Soap;
 
 use Dhl\Express\Webservice\Soap\ClassMap;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author  Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link    https://www.netresearch.de/
  */
-class ClassMapTest extends \PHPUnit\Framework\TestCase
+class ClassMapTest extends TestCase
 {
     /**
      * @test
@@ -19,11 +20,11 @@ class ClassMapTest extends \PHPUnit\Framework\TestCase
     {
         $types = ClassMap::get();
 
-        self::assertInternalType('array', $types);
+        self::assertIsArray($types);
         self::assertNotEmpty($types);
 
         foreach ($types as $type) {
-            self::assertInternalType('string', $type);
+            self::assertIsString($type);
             self::assertTrue(class_exists($type), "$type does not exist.");
         }
     }

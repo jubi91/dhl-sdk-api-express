@@ -5,12 +5,13 @@
 namespace Dhl\Express\Test\Unit\Webservice\Soap;
 
 use Dhl\Express\Webservice\Soap\SoapClientFactory;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @author  Christoph Aßmann <christoph.assmann@netresearch.de>
  * @link    https://www.netresearch.de/
  */
-class SoapClientFactoryTest extends \PHPUnit\Framework\TestCase
+class SoapClientFactoryTest extends TestCase
 {
     /**
      * We cannot test soap client internals / validate whether the soap client
@@ -21,6 +22,6 @@ class SoapClientFactoryTest extends \PHPUnit\Framework\TestCase
      */
     public function defaultWsdlIsAvailable()
     {
-        self::assertInternalType('string', SoapClientFactory::RATEBOOK_PROD_WSDL);
+        self::assertIsString(SoapClientFactory::RATEBOOK_PROD_WSDL);
     }
 }
